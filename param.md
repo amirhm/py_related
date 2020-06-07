@@ -1,6 +1,5 @@
 
 
-
 ```python
 def test(*,a) # should be keyword only argument
 def test(a, /) # a should be keyword only argument
