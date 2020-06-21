@@ -41,7 +41,9 @@ use the importtime-waterfall to see the import time for the libraries
 ```
 importtime-waterfall [package] --har (to be in har format)
 ```
+
 # using cProfile
+
 this will gives us the binary results in out file.
 ```
 python3 -m cProfile train.py -o out.pstats run
@@ -55,4 +57,35 @@ or use gprof2dot as much better visualization
 gprof2dot out.pstats | dot -Tsvg -o log.svg
 ```
 whish will create a digraph output 
+
+
+
+
+# `__future__` module
+This module really exist, see the doc by `python -m pydoc __future__`
+this is for the migration compatibility, generally the feature first appear here and then finilized in the releases. consider this as a compilation flags which loads the module with different settings. 
+for example if more python3 like print is needed we could add the 
+```
+from __future__ import print_function
+```
+to ensure the same functionality if loaded with python 2. 
+This import should appear before any line in the code (except after the docstring), otherwise docstring is not accepted. 
+
+# compeltion on python 
+
+to have the auto completion on python (similar the ipyhton), we could use the rlcompleter and readline modules
+```python
+import rlcompleter
+import readline
+readline.parse_and_bind("tab: complete")
+``` 
+
+# python for...: else , while ...: else
+
+this is quite unique fot python and else statement is excuted when the loop is not broken by either return, raise or break or so.
+
+
+
+
+
 

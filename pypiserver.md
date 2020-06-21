@@ -2,7 +2,6 @@ PIP Local server on ASBUILD01
 ===============
 
 
-
 The local pypiserver is installed on the asbuild01 (on port 8081). To add the repository on the pip.ini file (On Windows, linux pip.conf)
 use these lines 
 
@@ -20,7 +19,18 @@ pip install --extra-index-url http://asbuild01:8081 --trusted-host asbuild01 ic3
 ````
 
 to upload the package after build, you could use the twine package. command will be :
-
 ````
 twine upload --repository-url http://asbuild01:8081 dist\astools-0.0.*.tar*
-````
+````    
+
+
+to generate the passwd file for authentication on the server side, we could use the openssl 
+
+```
+❯ openssl passwd -apr1 password
+$apr1$BT6io9g2$w6UDMeKMwL25FlIZ.qUvt0
+``` 
+
+```
+./pypi-server -p 8080 -P htpasswd.txt ~/packages
+``` 

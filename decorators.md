@@ -113,3 +113,18 @@ a = C([1,2,3])
 print(type(a[1]))
 print(type(a[1:]))
 ```
+
+
+# functools.lru_cache
+
+Least receltnly used cache decorator
+could be used for the fucntion to cache the results after run and use the cached values after that. good for expensive function runs. 
+`lru_cache(maxsize=128, typed=False)`
+
+```python
+import functools
+@functools.lru_cache
+def square(x):
+    return x**2
+
+```
